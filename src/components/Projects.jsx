@@ -62,8 +62,8 @@ const Projects = () => {
       categoryLabel: t('projects', 'filterWeb'),
       image: "/projects/lectura_app.png",
       description: t('projects', 'p5Desc'),
-      tags: ["React", "TailwindCSS", "Node.js"],
-      link: "https://lectura-app.com" // Replace with actual URL when ready
+      tags: ["Laravel", "Blade", "PostgreSQL"],
+      link: "https://projet-lectura-joan-production.up.railway.app"
     }
   ];
 
