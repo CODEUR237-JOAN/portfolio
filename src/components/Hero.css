@@ -352,8 +352,24 @@
   }
 
   .floating-badge {
-    display: none;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.75rem;
   }
+
+  .floating-icon {
+    padding: 0.6rem;
+  }
+
+  .badge-js { top: 15%; right: 0%; }
+  .badge-css { bottom: 25%; right: -5%; }
+  .badge-html { bottom: 10%; left: 5%; }
+  .badge-dart { top: 0%; left: 20%; }
+  .badge-java { top: 40%; left: -5%; }
+  .badge-py { top: 0%; right: 25%; }
+  .badge-sql { top: 40%; right: 0%; }
+  
+  .icon-1 { top: 15%; left: 5%; }
+  .icon-2 { bottom: 15%; right: 5%; }
 }
 
 @media (max-width: 480px) {
@@ -374,5 +390,30 @@
   .hero-buttons .btn {
     width: 100%;
     justify-content: center;
+  }
+
+  .avatar-container {
+    width: 280px;
+    height: 280px;
+  }
+
+  .avatar {
+    width: 220px;
+    height: 220px;
+  }
+
+  .neon-ring {
+    width: 250px;
+    height: 250px;
+  }
+
+  .neon-ring--2 {
+    width: 270px;
+    height: 270px;
+  }
+  
+  .floating-badge {
+    padding: 0.2rem 0.5rem;
+    font-size: 0.65rem;
   }
 }
