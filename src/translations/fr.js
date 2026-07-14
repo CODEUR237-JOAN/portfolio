@@ -9,12 +9,13 @@ export const fr = {
     hireMe: "M'embaucher"
   },
   hero: {
-    greeting: "Bonjour, je suis ",
+    greeting: "Bonjour, je suis",
     title: "Développeur Full-Stack & Administrateur BD",
     bio: "Je construis des produits numériques modernes, réactifs et conviviaux qui aident les entreprises à se développer. Passionné par l'écriture de code propre et la création de belles interfaces utilisateur.",
     downloadCV: "Télécharger CV",
     contactMe: "Me Contacter",
-    followMe: "Suivez-moi"
+    followMe: "Suivez-moi",
+    roles: ["Développeur Full-Stack", "Développeur Flutter", "Admin Base de Données", "Développeur React"]
   },
   aboutSkills: {
     aboutTitle: "À Propos",
@@ -24,7 +25,8 @@ export const fr = {
     emailLabel: "Email:",
     locationLabel: "Localisation:",
     knowMore: "En Savoir Plus",
-    skillsTitle: "Compétences"
+    skillsTitle: "Compétences",
+    skillsSubtitle: "Technologies et outils que je maîtrise pour créer des expériences incroyables"
   },
   services: {
     title: "Services",
@@ -70,10 +72,14 @@ export const fr = {
     subjectInput: "Sujet",
     messageInput: "Message",
     sendBtn: "Envoyer le Message",
+    sendingBtn: "Envoi en cours...",
+    successMsg: "Message envoyé avec succès !",
+    errorMsg: "Une erreur s'est produite. Veuillez réessayer.",
     namePlaceholder: "John Doe",
     emailPlaceholder: "john@example.com",
     subjectPlaceholder: "Parlons de votre projet",
-    messagePlaceholder: "Votre message..."
+    messagePlaceholder: "Votre message...",
+    whatsappBtn: "Discuter sur WhatsApp"
   },
   footer: {
     rights: "Tous droits réservés."

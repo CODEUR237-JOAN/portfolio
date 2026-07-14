@@ -9,12 +9,13 @@ export const en = {
     hireMe: "Hire Me"
   },
   hero: {
-    greeting: "Hello, I'm ",
+    greeting: "Hello, I'm",
     title: "Full-Stack Developer & Database Admin",
     bio: "I build modern, responsive, and user-friendly digital products that help businesses grow. Passionate about writing clean code and creating beautiful UI/UX.",
     downloadCV: "Download CV",
     contactMe: "Contact Me",
-    followMe: "Follow Me"
+    followMe: "Follow Me",
+    roles: ["Full-Stack Developer", "Flutter Developer", "Database Admin", "React Developer"]
   },
   aboutSkills: {
     aboutTitle: "About Me",
@@ -24,7 +25,8 @@ export const en = {
     emailLabel: "Email:",
     locationLabel: "Location:",
     knowMore: "Know More",
-    skillsTitle: "Skills"
+    skillsTitle: "Skills",
+    skillsSubtitle: "Technologies and tools I master to create incredible experiences"
   },
   services: {
     title: "Services",
@@ -70,10 +72,14 @@ export const en = {
     subjectInput: "Subject",
     messageInput: "Message",
     sendBtn: "Send Message",
+    sendingBtn: "Sending...",
+    successMsg: "Message sent successfully!",
+    errorMsg: "An error occurred. Please try again.",
     namePlaceholder: "John Doe",
     emailPlaceholder: "john@example.com",
     subjectPlaceholder: "Let's talk about your project",
-    messagePlaceholder: "Your message..."
+    messagePlaceholder: "Your message...",
+    whatsappBtn: "Chat on WhatsApp"
   },
   footer: {
     rights: "All Rights Reserved."

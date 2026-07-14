@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Contact.css';
-import { Phone, Mail, MapPin, MessageCircle, Send } from 'lucide-react';
+import { Phone, Mail, MapPin, MessageCircle, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 const Contact = () => {
@@ -12,9 +12,8 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus(null);
-    
+
     const formData = new FormData(e.target);
-    // Remplacez par votre clé d'accès Web3Forms
     formData.append("access_key", "0143b29b-0e67-4978-b2c1-a95169bcc967");
 
     try {
@@ -30,11 +29,9 @@ const Contact = () => {
         e.target.reset();
         setTimeout(() => setSubmitStatus(null), 5000);
       } else {
-        console.error("Erreur:", data);
         setSubmitStatus('error');
       }
     } catch (error) {
-      console.error("Erreur fetch:", error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -45,27 +42,27 @@ const Contact = () => {
     <section id="contact" className="section contact-section">
       <div className="container">
         <div className="contact-wrapper">
-          
+
           {/* LEFT SIDE: Info */}
           <div className="contact-left" data-aos="fade-right">
             <div className="contact-header">
               <h2 className="contact-title">
-                {t('contact', 'titleWork')} <span>{t('contact', 'titleTogether')}</span>
+                {t('contact', 'titleWork')} <span className="gradient-text">{t('contact', 'titleTogether')}</span>
               </h2>
               <p className="contact-desc">{t('contact', 'desc')}</p>
             </div>
-            
+
             <div className="contact-info-modern">
               <div className="info-card">
-                <div className="icon-box"><Phone size={24} /></div>
+                <div className="icon-box"><Phone size={22} /></div>
                 <div className="info-content">
                   <span className="label">{t('contact', 'phoneLabel')}</span>
-                  <span className="value">+237 657 715 898 <br/> +237 654 217 409</span>
+                  <span className="value">+237 657 715 898 <br /> +237 654 217 409</span>
                 </div>
               </div>
-              
+
               <div className="info-card">
-                <div className="icon-box"><Mail size={24} /></div>
+                <div className="icon-box"><Mail size={22} /></div>
                 <div className="info-content">
                   <span className="label">{t('contact', 'emailLabel')}</span>
                   <a href="mailto:joanfreeddonfmomeufo@gmail.com" className="value hover-link">joanfreeddonfmomeufo@gmail.com</a>
@@ -73,7 +70,7 @@ const Contact = () => {
               </div>
 
               <div className="info-card">
-                <div className="icon-box"><MapPin size={24} /></div>
+                <div className="icon-box"><MapPin size={22} /></div>
                 <div className="info-content">
                   <span className="label">{t('contact', 'addressLabel')}</span>
                   <span className="value">Nkolmesseng, Cameroun</span>
@@ -82,7 +79,7 @@ const Contact = () => {
             </div>
 
             <a href="https://wa.me/237657715898" target="_blank" rel="noopener noreferrer" className="btn-whatsapp">
-              <MessageCircle size={20} /> Discuter sur WhatsApp
+              <MessageCircle size={20} /> {t('contact', 'whatsappBtn')}
             </a>
           </div>
 
@@ -93,7 +90,7 @@ const Contact = () => {
                 <h3>{t('contact', 'formTitle')}</h3>
                 <p>{t('contact', 'formSubtitle')}</p>
               </div>
-              
+
               <form className="contact-form" onSubmit={handleSubmit}>
                 <div className="form-row">
                   <div className="form-group">
@@ -105,7 +102,7 @@ const Contact = () => {
                     <input type="email" name="email" placeholder={t('contact', 'emailPlaceholder')} required />
                   </div>
                 </div>
-                
+
                 <div className="form-group">
                   <label>{t('contact', 'subjectInput')}</label>
                   <input type="text" name="subject" placeholder={t('contact', 'subjectPlaceholder')} required />
@@ -117,15 +114,30 @@ const Contact = () => {
                 </div>
 
                 <button type="submit" className="btn btn-primary submit-btn" disabled={isSubmitting}>
-                  <span style={{ display: isSubmitting ? 'none' : 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    {t('contact', 'sendBtn')} <Send size={18} />
-                  </span>
-                  <span style={{ display: isSubmitting ? 'block' : 'none' }}>
-                    Envoi en cours...
-                  </span>
+                  {isSubmitting ? (
+                    <span className="btn-loading">
+                      <span className="spinner" />
+                      {t('contact', 'sendingBtn')}
+                    </span>
+                  ) : (
+                    <span className="btn-content">
+                      {t('contact', 'sendBtn')} <Send size={18} />
+                    </span>
+                  )}
                 </button>
-                {submitStatus === 'success' && <p style={{ color: '#25D366', marginTop: '10px', textAlign: 'center' }}>Message envoyé avec succès !</p>}
-                {submitStatus === 'error' && <p style={{ color: '#ff4d4f', marginTop: '10px', textAlign: 'center' }}>Une erreur s'est produite. Veuillez réessayer.</p>}
+
+                {submitStatus === 'success' && (
+                  <div className="form-status form-status--success">
+                    <CheckCircle size={18} />
+                    {t('contact', 'successMsg')}
+                  </div>
+                )}
+                {submitStatus === 'error' && (
+                  <div className="form-status form-status--error">
+                    <AlertCircle size={18} />
+                    {t('contact', 'errorMsg')}
+                  </div>
+                )}
               </form>
             </div>
           </div>

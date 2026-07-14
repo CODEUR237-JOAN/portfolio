@@ -9,32 +9,40 @@ import Services from './components/Services';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import ScrollProgress from './components/ScrollProgress';
+import ParticlesBackground from './components/ParticlesBackground';
 
 import { LanguageProvider } from './context/LanguageContext';
+import { ThemeProvider } from './context/ThemeContext';
 
 function App() {
   useEffect(() => {
     AOS.init({
-      duration: 800,
+      duration: 700,
       once: true,
       easing: 'ease-out-cubic',
+      offset: 80,
     });
   }, []);
 
   return (
-    <LanguageProvider>
-      <div className="app">
-        <Header />
-        <main>
-          <Hero />
-          <AboutSkills />
-          <Services />
-          <Projects />
-          <Contact />
-        </main>
-        <Footer />
-      </div>
-    </LanguageProvider>
+    <ThemeProvider>
+      <LanguageProvider>
+        <div className="app">
+          <ScrollProgress />
+          <ParticlesBackground />
+          <Header />
+          <main>
+            <Hero />
+            <AboutSkills />
+            <Services />
+            <Projects />
+            <Contact />
+          </main>
+          <Footer />
+        </div>
+      </LanguageProvider>
+    </ThemeProvider>
   );
 }
 

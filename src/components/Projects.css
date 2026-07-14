@@ -10,7 +10,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 0.75rem;
   margin-bottom: 3rem;
 }
 
@@ -19,36 +19,42 @@
   border: 1px solid var(--border-color);
   color: var(--text-secondary);
   padding: 0.5rem 1.5rem;
-  border-radius: 30px;
+  border-radius: var(--radius-full);
   cursor: pointer;
   font-weight: 500;
-  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  font-family: inherit;
+  transition: all var(--transition-base);
 }
 
-.filter-btn:hover,
+.filter-btn:hover {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
 .filter-btn.active {
-  background: var(--accent-purple);
+  background: var(--accent-gradient);
   color: white;
-  border-color: var(--accent-purple);
-  box-shadow: 0 0 15px var(--accent-purple-glow);
+  border-color: transparent;
+  box-shadow: 0 4px 15px var(--accent-primary-glow);
 }
 
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .project-card {
   padding: 0;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all var(--transition-base);
 }
 
 .project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 15px rgba(157, 78, 221, 0.2);
-  border-color: var(--accent-purple);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+  border-color: var(--border-accent);
 }
 
 .project-image-wrapper {
@@ -62,11 +68,11 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform var(--transition-slow);
 }
 
 .project-card:hover .project-image {
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
 .project-overlay {
@@ -75,12 +81,13 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(13, 17, 23, 0.7);
+  background: rgba(10, 10, 15, 0.6);
+  backdrop-filter: blur(2px);
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity var(--transition-base);
 }
 
 .project-card:hover .project-overlay {
@@ -88,20 +95,21 @@
 }
 
 .project-link {
-  width: 50px;
-  height: 50px;
-  background: var(--accent-purple);
+  width: 48px;
+  height: 48px;
+  background: var(--accent-gradient);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  transform: translateY(20px);
-  transition: transform 0.3s ease;
+  transform: translateY(15px) scale(0.8);
+  transition: all var(--transition-base);
+  box-shadow: 0 4px 15px var(--accent-primary-glow);
 }
 
 .project-card:hover .project-link {
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 .project-info {
@@ -109,36 +117,56 @@
 }
 
 .project-category {
-  font-size: 0.8rem;
-  color: var(--accent-purple);
+  font-size: 0.75rem;
+  color: var(--accent-primary-light);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   display: block;
   margin-bottom: 0.5rem;
 }
 
 .project-title {
-  font-size: 1.25rem;
-  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+  margin-bottom: 0.6rem;
+  font-weight: 700;
 }
 
 .project-desc {
   color: var(--text-secondary);
-  font-size: 0.9rem;
-  margin-bottom: 1.5rem;
+  font-size: 0.88rem;
+  margin-bottom: 1rem;
   line-height: 1.5;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.2rem;
+}
+
+.project-tag {
+  font-size: 0.72rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  background: var(--accent-primary-bg);
+  color: var(--accent-primary-light);
+  font-weight: 600;
+  border: 1px solid var(--border-accent);
 }
 
 .view-project {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  color: var(--accent-purple);
-  font-size: 0.9rem;
+  gap: 0.35rem;
+  color: var(--accent-primary-light);
+  font-size: 0.88rem;
   font-weight: 600;
+  transition: all var(--transition-base);
 }
 
 .view-project:hover {
-  color: #c77dff;
+  color: var(--accent-primary);
+  gap: 0.6rem;
 }
