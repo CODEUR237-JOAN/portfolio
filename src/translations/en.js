@@ -55,7 +55,9 @@ export const en = {
     p3Title: "FinTech Dashboard",
     p3Desc: "A comprehensive financial dashboard for tracking expenses, investments, and crypto assets.",
     p4Title: "EcoBrand Identity",
-    p4Desc: "A complete visual identity and UI design system for a sustainable e-commerce brand."
+    p4Desc: "A complete visual identity and UI design system for a sustainable e-commerce brand.",
+    p5Title: "LECTURA",
+    p5Desc: "A modern platform dedicated to reading, managing digital libraries, and discovering new books."
   },
   contact: {
     titleWork: "Let's work",

@@ -55,7 +55,9 @@ export const fr = {
     p3Title: "Tableau de Bord FinTech",
     p3Desc: "Un tableau de bord financier complet pour le suivi des dépenses, des investissements et des crypto-actifs.",
     p4Title: "Identité de Marque Éco",
-    p4Desc: "Un système d'identité visuelle et de conception d'interface utilisateur complet pour une marque de commerce électronique durable."
+    p4Desc: "Un système d'identité visuelle et de conception d'interface utilisateur complet pour une marque de commerce électronique durable.",
+    p5Title: "LECTURA",
+    p5Desc: "Une plateforme moderne dédiée à la lecture, à la gestion de bibliothèques numériques et à la découverte de nouveaux livres."
   },
   contact: {
     titleWork: "Travaillons",
