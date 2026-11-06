@@ -14,7 +14,9 @@ const Contact = () => {
     setSubmitStatus(null);
 
     const formData = new FormData(e.target);
-    formData.append("access_key", import.meta.env.VITE_WEB3FORMS_KEY);
+    // Web3Forms access keys are public by design (they ship in the client bundle).
+    // The env variable allows overriding; the fallback keeps production working.
+    formData.append("access_key", import.meta.env.VITE_WEB3FORMS_KEY || "0143b29b-0e67-4978-b2c1-a95169bcc967");
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
