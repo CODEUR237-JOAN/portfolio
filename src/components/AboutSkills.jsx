@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import './AboutSkills.css';
 import { User, Mail, MapPin, ArrowRight, Phone } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
@@ -64,7 +64,7 @@ const AboutSkills = () => {
                   </div>
                   <div>
                     <span className="detail-label">{t('aboutSkills', 'locationLabel')}</span>
-                    <span className="detail-value">Nkolmesseng, Cameroun</span>
+                    <span className="detail-value">Nkolmesseng, Cameroun 🇨🇲</span>
                   </div>
                 </div>
               </div>
@@ -102,11 +102,11 @@ const SkillCard = ({ name, percentage, icon, color }) => {
   const ref = useRef(null);
 
   useEffect(() => {
+    const el = ref.current;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !animated) {
           setAnimated(true);
-          // Animate counter
           const duration = 1200;
           const startTime = performance.now();
           const animate = (currentTime) => {
@@ -121,8 +121,8 @@ const SkillCard = ({ name, percentage, icon, color }) => {
       },
       { threshold: 0.3 }
     );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
+    if (el) observer.observe(el);
+    return () => { if (el) observer.unobserve(el); };
   }, [percentage, animated]);
 
   return (

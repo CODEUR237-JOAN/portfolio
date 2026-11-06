@@ -1,4 +1,3 @@
-import React from 'react';
 import useScrollProgress from '../hooks/useScrollProgress';
 
 const ScrollProgress = () => {
@@ -12,6 +11,7 @@ const ScrollProgress = () => {
       aria-valuenow={Math.round(progress)}
       aria-valuemin="0"
       aria-valuemax="100"
+      aria-label="Page scroll progress"
     />
   );
 };

@@ -1,4 +1,3 @@
-import React from 'react';
 import './Services.css';
 import { Code2, Smartphone, Palette, Cloud } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';

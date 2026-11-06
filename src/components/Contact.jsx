@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './Contact.css';
 import { Phone, Mail, MapPin, MessageCircle, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
@@ -14,7 +14,7 @@ const Contact = () => {
     setSubmitStatus(null);
 
     const formData = new FormData(e.target);
-    formData.append("access_key", "0143b29b-0e67-4978-b2c1-a95169bcc967");
+    formData.append("access_key", import.meta.env.VITE_WEB3FORMS_KEY);
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -31,7 +31,7 @@ const Contact = () => {
       } else {
         setSubmitStatus('error');
       }
-    } catch (error) {
+    } catch {
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -73,7 +73,7 @@ const Contact = () => {
                 <div className="icon-box"><MapPin size={22} /></div>
                 <div className="info-content">
                   <span className="label">{t('contact', 'addressLabel')}</span>
-                  <span className="value">Nkolmesseng, Cameroun</span>
+                  <span className="value">Nkolmesseng, Cameroun 🇨🇲</span>
                 </div>
               </div>
             </div>
@@ -94,23 +94,23 @@ const Contact = () => {
               <form className="contact-form" onSubmit={handleSubmit}>
                 <div className="form-row">
                   <div className="form-group">
-                    <label>{t('contact', 'nameInput')}</label>
-                    <input type="text" name="name" placeholder={t('contact', 'namePlaceholder')} required />
+                    <label htmlFor="contact-name">{t('contact', 'nameInput')}</label>
+                    <input type="text" id="contact-name" name="name" placeholder={t('contact', 'namePlaceholder')} required autoComplete="name" />
                   </div>
                   <div className="form-group">
-                    <label>{t('contact', 'emailInput')}</label>
-                    <input type="email" name="email" placeholder={t('contact', 'emailPlaceholder')} required />
+                    <label htmlFor="contact-email">{t('contact', 'emailInput')}</label>
+                    <input type="email" id="contact-email" name="email" placeholder={t('contact', 'emailPlaceholder')} required autoComplete="email" />
                   </div>
                 </div>
 
                 <div className="form-group">
-                  <label>{t('contact', 'subjectInput')}</label>
-                  <input type="text" name="subject" placeholder={t('contact', 'subjectPlaceholder')} required />
+                  <label htmlFor="contact-subject">{t('contact', 'subjectInput')}</label>
+                  <input type="text" id="contact-subject" name="subject" placeholder={t('contact', 'subjectPlaceholder')} required />
                 </div>
 
                 <div className="form-group">
-                  <label>{t('contact', 'messageInput')}</label>
-                  <textarea name="message" placeholder={t('contact', 'messagePlaceholder')} rows="4" required></textarea>
+                  <label htmlFor="contact-message">{t('contact', 'messageInput')}</label>
+                  <textarea id="contact-message" name="message" placeholder={t('contact', 'messagePlaceholder')} rows="4" required></textarea>
                 </div>
 
                 <button type="submit" className="btn btn-primary submit-btn" disabled={isSubmitting}>
@@ -127,13 +127,13 @@ const Contact = () => {
                 </button>
 
                 {submitStatus === 'success' && (
-                  <div className="form-status form-status--success">
+                  <div className="form-status form-status--success" role="alert">
                     <CheckCircle size={18} />
                     {t('contact', 'successMsg')}
                   </div>
                 )}
                 {submitStatus === 'error' && (
-                  <div className="form-status form-status--error">
+                  <div className="form-status form-status--error" role="alert">
                     <AlertCircle size={18} />
                     {t('contact', 'errorMsg')}
                   </div>

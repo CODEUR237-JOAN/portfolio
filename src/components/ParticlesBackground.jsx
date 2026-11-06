@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 
 const ParticlesBackground = () => {
   const particles = useMemo(() => {
@@ -14,8 +14,8 @@ const ParticlesBackground = () => {
 
   return (
     <>
-      <div className="mesh-gradient" />
-      <div className="particles-container">
+      <div className="mesh-gradient" aria-hidden="true" />
+      <div className="particles-container" aria-hidden="true">
         {particles.map((p) => (
           <div
             key={p.id}

@@ -103,9 +103,21 @@
   border-top: 1px solid var(--border-color);
 }
 
+.footer-bottom-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
 .copyright {
   color: var(--text-muted);
   font-size: 0.85rem;
+}
+
+.made-with {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  opacity: 0.8;
 }
 
 .btn-top {

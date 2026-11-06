@@ -1,7 +1,6 @@
-import React from 'react';
 import './Hero.css';
 import { Download, ArrowRight, Code } from 'lucide-react';
-import { FaInstagram, FaGithub, FaYoutube } from 'react-icons/fa';
+import { FaInstagram, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { useLanguage } from '../context/LanguageContext';
 import useTypewriter from '../hooks/useTypewriter';
 
@@ -32,7 +31,7 @@ const Hero = () => {
             <a href="/CV.pdf" download="CV_Joan_Dongmo.pdf" className="btn btn-primary">
               {t('hero', 'downloadCV')} <Download size={18} />
             </a>
-            <a href="mailto:joanfreeddonfmomeufo@gmail.com" className="btn btn-ghost">
+            <a href="#contact" className="btn btn-ghost">
               {t('hero', 'contactMe')} <ArrowRight size={18} />
             </a>
           </div>
@@ -47,8 +46,8 @@ const Hero = () => {
               <a href="https://github.com/CODEUR237-JOAN" target="_blank" rel="noopener noreferrer" className="social-icon github" aria-label="GitHub">
                 <FaGithub size={20} />
               </a>
-              <a href="#" className="social-icon youtube" aria-label="YouTube">
-                <FaYoutube size={20} />
+              <a href="https://www.linkedin.com/in/joan-dongmo" target="_blank" rel="noopener noreferrer" className="social-icon linkedin" aria-label="LinkedIn">
+                <FaLinkedin size={20} />
               </a>
             </div>
           </div>
@@ -60,7 +59,7 @@ const Hero = () => {
             <div className="neon-ring neon-ring--2" />
             <img
               src="/profile.jpg"
-              alt="Joan Dongmo — Full-Stack Developer"
+              alt="Joan Dongmo — Ingénieur des Travaux Informatiques"
               className="avatar"
             />
 

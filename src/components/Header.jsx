@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './Header.css';
 import { Moon, Sun, Globe, Menu, X } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
@@ -59,7 +59,7 @@ const Header = () => {
         </a>
 
         {/* Desktop Nav */}
-        <nav className="desktop-nav">
+        <nav className="desktop-nav" aria-label="Navigation principale">
           <ul className="nav-links">
             {navLinks.map(link => (
               <li key={link.id}>
@@ -81,7 +81,7 @@ const Header = () => {
           <button
             className="btn-ghost-icon lang-toggle"
             onClick={toggleLanguage}
-            aria-label="Toggle language"
+            aria-label={`Switch to ${language === 'fr' ? 'English' : 'Français'}`}
           >
             <Globe size={18} />
             <span className="lang-label">{language.toUpperCase()}</span>
@@ -89,7 +89,7 @@ const Header = () => {
           <button
             className="btn-ghost-icon theme-toggle"
             onClick={toggleTheme}
-            aria-label="Toggle theme"
+            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
           >
             {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
           </button>
@@ -97,6 +97,7 @@ const Header = () => {
             className="btn-ghost-icon mobile-menu-btn"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
+            aria-expanded={isMenuOpen}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -106,7 +107,7 @@ const Header = () => {
       {/* Mobile Menu */}
       <div className={`mobile-menu ${isMenuOpen ? 'mobile-menu--open' : ''}`}>
         <div className="mobile-menu-backdrop" onClick={() => setIsMenuOpen(false)} />
-        <nav className="mobile-menu-content">
+        <nav className="mobile-menu-content" aria-label="Navigation mobile">
           <ul className="mobile-nav-links">
             {navLinks.map((link, index) => (
               <li key={link.id} style={{ animationDelay: `${index * 0.05}s` }}>
